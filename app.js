@@ -2,11 +2,6 @@ const chalk = require('chalk');
 const yargs = require('yargs');
 const notes = require('./notes.js');
 
-// Set the shortcuts.
-const log = console.log;
-const error = chalk.bold.red;
-const success = chalk.bold.green.italic;
-
 // Create add command.
 yargs.command({
     command: 'add',
@@ -47,7 +42,7 @@ yargs.command({
     command: 'list',
     describe: 'List all notes.',
     handler() {
-        log('List all notes');
+        notes.listNotes();
     }
 })
 
@@ -55,8 +50,13 @@ yargs.command({
 yargs.command({
     command: 'read',
     describe: 'Read the note.',
-    handler() {
-        log('Read the note');
+    title: {
+        describe: 'Note title',
+        demandOption: true,
+        type: 'string'
+    },
+    handler(argv) {
+        notes.readNote(argv.title);
     }
 })
 
