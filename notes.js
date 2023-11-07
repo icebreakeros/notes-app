@@ -30,7 +30,7 @@ const readNote = (title) => {
     const notes = loadNotes();
     const theNote = notes.find((note) => note.title === title)
 
-    if (typeof theNote !== 'undefined') {
+    if (theNote) {
         log(chalk.bold.white.inverse('Title: ' + theNote.title));
         log(chalk.yellow('Note: ') + theNote.body);
     } else {
