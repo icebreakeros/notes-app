@@ -1,8 +1,5 @@
 const chalk = require('chalk');
 const fs = require('fs');
-const getNotes = () => {
-    return 'Your notes...';
-}
 
 // Set the shortcuts.
 const log = console.log;
@@ -72,7 +69,6 @@ const loadNotes = () => {
 }
 
 module.exports = {
-    getNotes: getNotes,
     addNote: addNote,
     removeNote: removeNote,
     listNotes: listNotes,
