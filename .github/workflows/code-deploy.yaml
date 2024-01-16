@@ -1,0 +1,20 @@
+##
+# code-deploy.yaml
+# See `icebreakeros/reusable-workflow/.github/workflows/code-deploy.yaml` for more details.
+# Deploys the code into `develop`.
+##
+---
+name: Deploy into develop
+
+on:
+  pull_request:
+    types: ['closed']
+    branches: ['master']
+
+  workflow_dispatch: {}
+
+jobs:
+  call-reusable-workflow:
+    name: Reusable
+    uses: icebreakeros/reusable-workflow/.github/workflows/code-deploy.yaml@main
+    secrets: inherit

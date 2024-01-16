@@ -1,0 +1,25 @@
+##
+# code-promotion.yaml
+# See `icebreakeros/reusable-workflow/.github/workflows/code-promotion.yaml` for more details.
+##
+---
+name: Code promotion
+on:
+  workflow_dispatch:
+    inputs:
+      target-branch:
+        required: true
+        description: Target branch in `Target repository` for code promotion
+        type: choice
+        options:
+          - release
+          - stage
+          - production
+
+jobs:
+  call-reusable-workflow:
+    name: Reusable
+    uses: icebreakeros/reusable-workflow/.github/workflows/code-promotion.yaml@main
+    secrets: inherit
+    with:
+      target-branch: ${{ github.event.inputs.target-branch }}

@@ -1,0 +1,15 @@
+##
+# require-all-reviewers.yaml
+# See `icebreakeros/reusable-workflow/.github/workflows/require-all-reviewers.yaml` for more details.
+##
+---
+name: Require all reviewers
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  call-reusable-workflow:
+    name: Reusable
+    uses: icebreakeros/reusable-workflow/.github/workflows/require-all-reviewers.yaml@main
+    secrets: inherit
