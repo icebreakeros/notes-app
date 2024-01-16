@@ -21,6 +21,10 @@ on:
           - minor
           - patch
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   call-reusable-workflow:
     name: Reusable
