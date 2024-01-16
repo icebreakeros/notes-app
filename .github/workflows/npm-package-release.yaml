@@ -4,12 +4,7 @@
 ##
 ---
 name: Release
-
 on:
-  pull_request:
-    types: ['closed']
-    branches: ['main']
-
   workflow_dispatch:
     inputs:
       package_version_type:
@@ -20,7 +15,7 @@ on:
           - major
           - minor
           - patch
-          
+
 jobs:
   call-reusable-workflow:
     name: Reusable
